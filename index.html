@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding RSVP</title>
+    
+    <style>
+        body {
+            font-family: serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f0f6;
+            color: #333;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        img.banner {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 3.0em;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.7em;
+            margin: 10px 0 20px;
+        }
+
+        p {
+            font-size: 1.0em;
+            margin: 10px 0 20px;
+        }
+
+        .rsvp-button {
+            padding: 12px 25px;
+            background-color: #e91e63;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .rsvp-button:hover {
+            background-color: #d81b60;
+        }
+
+        .update-container {
+            margin: 40px 0; /* Added margin for spacing */
+        }
+
+        .update a {
+            color: #e91e63;
+            text-decoration: underline;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: color 0.3s;
+        }
+
+        .update a:hover {
+            color: #c12664;
+        }
+
+        .footer {
+            position: relative; /* Keep it relative to the page */
+            padding: 10px 20px;
+            margin-top: 40px 0 0;
+            text-align: right; /* Align text to the right */
+        }
+
+        .footer .staff-button {
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #e91e63, #ff4081);
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .footer .staff-button:hover {
+            background: linear-gradient(135deg, #ff4081, #e91e63);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Banner Image -->
+        <img src="ring1.jpg" alt="Wedding Banner" class="banner">
+
+        <h1>You're Invited!</h1>
+        <p> We are excited to invite you to the wedding of </p>
+        <h2>Remy bin Ali<br>&<br>Melati binti Abu</h2>
+        <p>Date: October 15, 2024<br>Time: 4:00 PM<br>Location: Parkview Hotel, Jalan Pertanian Luahan Jerudong BG3122</p>
+
+        <!-- RSVP Button -->
+        <a href="rsvpreg.html" class="rsvp-button">RSVP Here</a>
+    </div>
+
+    <!-- Update RSVP Link -->
+    <div class="update-container">
+        <div class="update">
+            <a href="login.php">Click here to update your RSVP!</a>
+        </div>
+    </div>
+
+    <!-- Footer with Staff Button -->
+    <div class="footer">
+        <a href="stafflogin.php" class="staff-button">Staff</a>
+    </div>
+
+</body>
+</html>

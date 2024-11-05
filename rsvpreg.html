@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP Registration</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f0f6;
+            color: #333;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #f1c6d3;
+            padding: 10px;
+            color: #fff;
+            position: relative;
+        }
+        .navbar a {
+            color: #e91e63;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+        .navbar a:hover {
+            background-color: #e91e63;
+            color: #fff;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 2em;
+            margin-bottom: 20px;
+            margin-top: 20px; /* Added margin-top for spacing */
+        }
+        form {
+            text-align: left;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 500px;
+        }
+        input[type="text"], input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 15px 0; /* Increased margin for spacing */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #e91e63;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 15px; /* Added margin-top for button spacing */
+        }
+        button:hover {
+            background-color: #d81b60;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Back to Main Page</a>
+    </div>
+
+    <!-- RSVP Form -->
+    <div class="container">
+        <h1>RSVP Registration</h1>
+        <form action="submit_rsvp.php" method="POST" onsubmit="return validateForm()">
+            <label for="name">Full Name (CAPS LOCK ONLY):</label>
+            <input type="text" id="name" name="name" placeholder="FULL NAME" required pattern="[A-Z ]+" title="Please enter your full name in CAPS LOCK.">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com" required>
+
+            <fieldset>
+                <legend>Will you attend the wedding?</legend>
+                <input type="radio" id="yes" name="attending" value="Yes" required onclick="toggleGuestInput(true)">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="attending" value="No" required onclick="toggleGuestInput(false)">
+                <label for="no">No</label>
+                <input type="radio" id="maybe" name="attending" value="Maybe" required onclick="toggleGuestInput(true)">
+                <label for="maybe">Maybe</label>
+            </fieldset>
+
+            <p><label for="num_guests">Number of Guests Attending:</label>
+            <input type="text" id="num_guests" name="num_guests" placeholder="Number of guests" pattern="[1-9][0-9]*" title="Please enter a number greater than 0.">
+
+            <button type="submit">Submit RSVP</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleGuestInput(isAttending) {
+            const numGuestsInput = document.getElementById('num_guests');
+            if (isAttending) {
+                numGuestsInput.disabled = false;
+                numGuestsInput.required = true;
+            } else {
+                numGuestsInput.disabled = true;
+                numGuestsInput.required = false;
+                numGuestsInput.value = '';  // Clear the value if not attending
+            }
+        }
+
+        function validateForm() {
+            const nameInput = document.getElementById('name');
+            if (nameInput.value !== nameInput.value.toUpperCase()) {
+                alert('Please enter your name in CAPS LOCK.');
+                return false;
+            }
+
+            const attendingYes = document.getElementById('yes').checked;
+            const attendingMaybe = document.getElementById('maybe').checked;
+            const numGuestsInput = document.getElementById('num_guests');
+
+            if ((attendingYes || attendingMaybe) && !numGuestsInput.value) {
+                alert('Please enter the number of guests attending.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
